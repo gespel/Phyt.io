@@ -11,14 +11,14 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.logging.Logger;
 
-public class StensWateringBackend {
+public class StensWateringBackend extends Thread {
     private String pathPrefix;
 
     public StensWateringBackend(String pathPrefix) {
         this.pathPrefix = pathPrefix;
     }
 
-    public void run() throws InterruptedException {
+    public void run() {
         Logger log = Logger.getLogger("StensWateringBackend");
         while (true) {
             try {
@@ -63,7 +63,11 @@ public class StensWateringBackend {
             catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-            Thread.sleep(10000);
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }
