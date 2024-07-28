@@ -58,7 +58,7 @@ public class StensWateringBackend {
                     System.out.println(response.statusCode());
                 }
                 client.close();
-                log.info("Successfully added datapoint.");
+                log.info("Successfully added datapoint from sensor.");
             }
             catch (Exception e) {
                 System.out.println(e.getMessage());
