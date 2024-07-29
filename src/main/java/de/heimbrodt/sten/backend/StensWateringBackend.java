@@ -1,6 +1,8 @@
 package de.heimbrodt.sten.backend;
 
 import com.google.gson.Gson;
+import de.heimbrodt.sten.models.Plant;
+import de.heimbrodt.sten.models.SensorRead;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -19,7 +21,7 @@ public class StensWateringBackend extends Thread {
     }
 
     public void run() {
-        Logger log = Logger.getLogger("StensWateringBackend");
+        Logger log = Logger.getLogger("Backend");
         while (true) {
             try {
                 HttpClient client = HttpClient.newHttpClient();

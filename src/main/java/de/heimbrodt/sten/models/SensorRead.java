@@ -1,4 +1,4 @@
-package de.heimbrodt.sten.backend;
+package de.heimbrodt.sten.models;
 
 import java.util.List;
 

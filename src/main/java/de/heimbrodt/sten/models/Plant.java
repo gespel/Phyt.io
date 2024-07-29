@@ -1,8 +1,13 @@
-package de.heimbrodt.sten.backend;
+package de.heimbrodt.sten.models;
 
 public class Plant {
     private String name;
     private float humidity;
+
+    public Plant(String name, float humidity) {
+        this.name = name;
+        this.humidity = humidity;
+    }
 
     public String getName() {
         return name;

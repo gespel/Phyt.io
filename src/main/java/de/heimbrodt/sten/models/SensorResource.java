@@ -1,7 +1,4 @@
-package de.heimbrodt.sten.frontend;
-
-import de.heimbrodt.sten.backend.PlantRead;
-import de.heimbrodt.sten.backend.SensorRead;
+package de.heimbrodt.sten.models;
 
 import java.util.ArrayList;
 import java.util.List;
