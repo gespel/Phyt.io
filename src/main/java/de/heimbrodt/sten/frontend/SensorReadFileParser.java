@@ -3,7 +3,6 @@ package de.heimbrodt.sten.frontend;
 import com.google.gson.Gson;
 import de.heimbrodt.sten.models.SensorRead;
 
-import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.logging.Logger;

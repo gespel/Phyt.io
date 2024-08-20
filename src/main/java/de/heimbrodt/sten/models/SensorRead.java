@@ -1,5 +1,7 @@
 package de.heimbrodt.sten.models;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 public class SensorRead {
@@ -8,7 +10,7 @@ public class SensorRead {
     private String timestamp;
 
     public SensorRead() {
-        this.timestamp = java.time.Instant.now().toString();
+        this.timestamp = ZonedDateTime.ofInstant(java.time.Instant.now(), ZoneId.systemDefault()).toString();
     }
     public SensorRead(String sensorName, List<PlantDataPoint> plants, String timestamp) {
         this.timestamp = timestamp;

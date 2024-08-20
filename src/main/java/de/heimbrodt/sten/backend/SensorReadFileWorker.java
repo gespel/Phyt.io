@@ -6,6 +6,8 @@ import de.heimbrodt.sten.models.SensorRead;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 public class SensorReadFileWorker {
 
@@ -13,7 +15,7 @@ public class SensorReadFileWorker {
         Gson gson = new Gson();
         SensorRead s = gson.fromJson(response, SensorRead.class);
 
-        String saveName = "sensor-reads/" + s.getSensorName() + "-" + java.time.Instant.now().toString() + ".json";
+        String saveName = "sensor-reads/" + s.getSensorName() + "-" + ZonedDateTime.ofInstant(java.time.Instant.now(), ZoneId.systemDefault()) + ".json";
 
         if(!new File("sensor-reads/").exists()) {
             new File("sensor-reads/").mkdir();
