@@ -1,10 +1,10 @@
 package de.heimbrodt.sten.models;
 
-public class Plant {
+public class PlantDataPoint {
     private String name;
     private float humidity;
 
-    public Plant(String name, float humidity) {
+    public PlantDataPoint(String name, float humidity) {
         this.name = name;
         this.humidity = humidity;
     }

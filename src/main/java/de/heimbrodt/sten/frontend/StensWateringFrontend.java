@@ -4,14 +4,11 @@ import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import de.heimbrodt.sten.models.Plant;
-import de.heimbrodt.sten.models.SensorRead;
-import de.heimbrodt.sten.models.SensorResource;
+import de.heimbrodt.sten.models.JsonDataResponseResource;
 
 import java.io.*;
 import java.net.InetSocketAddress;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
 import java.util.logging.Logger;
 
 public class StensWateringFrontend extends Thread {
@@ -33,12 +30,13 @@ public class StensWateringFrontend extends Thread {
     }
 
     static class SensorHandler implements HttpHandler {
-        private SensorResource currentResource;
+        private JsonDataResponseResource currentResource;
+        private SensorReadFileParser fp = new SensorReadFileParser();
 
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             Gson gson = new Gson();
-            readFile("prototyp.csv");
+            updateResponseJson();
             String response = gson.toJson(currentResource);
             exchange.getResponseHeaders().add("Content-Type", "application/json");
             exchange.sendResponseHeaders(200, response.length());
@@ -46,28 +44,10 @@ public class StensWateringFrontend extends Thread {
             os.write(response.getBytes());
             os.close();
         }
-        void readFile(String fileName) {
-            BufferedReader br = null;
-            String sensorName = fileName.split("\\.")[0];
-            try {
-                br = new BufferedReader(new FileReader(fileName));
-                String line = br.readLine();
-                currentResource = new SensorResource();
-                while (line != null) {
-                    String[] split = line.split(",");
-                    List<Plant> plants = new ArrayList<Plant>();
-                    Plant pl = new Plant(split[1], Float.parseFloat(split[2]));
-
-                    plants.add(pl);
-
-                    SensorRead sr = new SensorRead(sensorName, plants, split[0]);
-
-                    currentResource.addRead(sr);
-                    line = br.readLine();
-                }
-                br.close();
-            } catch (IOException e) {
-                System.out.println("Error reading file " + e.getMessage());
+        void updateResponseJson() {
+            currentResource = new JsonDataResponseResource();
+            for(File f : Objects.requireNonNull(new File("sensor-reads").listFiles())) {
+                currentResource.addSensorRead(fp.parseSensorRead(f.getAbsolutePath()));
             }
         }
     }
