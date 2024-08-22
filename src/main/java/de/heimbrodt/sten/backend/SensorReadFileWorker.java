@@ -15,7 +15,7 @@ public class SensorReadFileWorker {
         Gson gson = new Gson();
         SensorRead s = gson.fromJson(response, SensorRead.class);
 
-        String saveName = "sensor-reads/" + s.getSensorName() + "-" + ZonedDateTime.ofInstant(java.time.Instant.now(), ZoneId.systemDefault()) + ".json";
+        String saveName = "sensor-reads/" + s.getSensorName() + "-" + java.time.Instant.now() + ".json";
 
         if(!new File("sensor-reads/").exists()) {
             new File("sensor-reads/").mkdir();
