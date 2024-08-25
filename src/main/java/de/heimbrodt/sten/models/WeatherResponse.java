@@ -46,7 +46,7 @@ public class WeatherResponse {
         private double precipitation_10;
         private double precipitation_30;
         private double precipitation_60;
-        private int pressure_msl;
+        private double pressure_msl;
         private int relative_humidity;
         private int visibility;
         private int wind_direction_10;
@@ -157,11 +157,11 @@ public class WeatherResponse {
             this.precipitation_60 = precipitation_60;
         }
 
-        public int getPressure_msl() {
+        public double getPressure_msl() {
             return pressure_msl;
         }
 
-        public void setPressure_msl(int pressure_msl) {
+        public void setPressure_msl(double pressure_msl) {
             this.pressure_msl = pressure_msl;
         }
 
