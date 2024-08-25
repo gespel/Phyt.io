@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
+import de.heimbrodt.sten.datascraper.WeatherDataScraper;
 import de.heimbrodt.sten.models.JsonDataResponseResource;
 
 import java.io.*;
@@ -23,10 +24,24 @@ public class StensWateringFrontend extends Thread {
         }
 
         server.createContext("/data", new SensorHandler());
+        server.createContext("/weather", new WeatherDataHandler());
         server.setExecutor(null); // creates a default executor
         server.start();
         log.info("Frontend server started");
         log.info("Server is listening on port 8080");
+    }
+
+    static class WeatherDataHandler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange t) throws IOException {
+            WeatherDataScraper scraper = new WeatherDataScraper();
+            scraper.scrape();
+            String response = new Gson().toJson(scraper.getWeather());
+            t.sendResponseHeaders(200, response.length());
+            OutputStream os = t.getResponseBody();
+            os.write(response.getBytes());
+            os.close();
+        }
     }
 
     static class SensorHandler implements HttpHandler {
