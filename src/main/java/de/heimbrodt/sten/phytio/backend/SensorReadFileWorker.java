@@ -1,13 +1,11 @@
-package de.heimbrodt.sten.backend;
+package de.heimbrodt.sten.phytio.backend;
 
 import com.google.gson.Gson;
-import de.heimbrodt.sten.models.SensorRead;
+import de.heimbrodt.sten.phytio.models.SensorRead;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 
 public class SensorReadFileWorker {
 

@@ -1,11 +1,11 @@
-package de.heimbrodt.sten.frontend;
+package de.heimbrodt.sten.phytio.frontend;
 
 import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import de.heimbrodt.sten.datascraper.WeatherDataScraper;
-import de.heimbrodt.sten.models.JsonDataResponseResource;
+import de.heimbrodt.sten.phytio.datascraper.WeatherDataScraper;
+import de.heimbrodt.sten.phytio.models.JsonDataResponseResource;
 
 import java.io.*;
 import java.net.InetSocketAddress;

@@ -1,10 +1,5 @@
-package de.heimbrodt.sten.backend;
+package de.heimbrodt.sten.phytio.backend;
 
-import com.google.gson.Gson;
-import de.heimbrodt.sten.models.SensorRead;
-
-import java.io.File;
-import java.io.PrintWriter;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;

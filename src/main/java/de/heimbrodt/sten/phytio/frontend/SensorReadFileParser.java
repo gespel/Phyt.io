@@ -1,7 +1,7 @@
-package de.heimbrodt.sten.frontend;
+package de.heimbrodt.sten.phytio.frontend;
 
 import com.google.gson.Gson;
-import de.heimbrodt.sten.models.SensorRead;
+import de.heimbrodt.sten.phytio.models.SensorRead;
 
 import java.nio.file.Files;
 import java.nio.file.Path;

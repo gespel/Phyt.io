@@ -1,4 +1,4 @@
-package de.heimbrodt.sten.models;
+package de.heimbrodt.sten.phytio.models;
 
 import java.util.List;
 import java.util.Map;

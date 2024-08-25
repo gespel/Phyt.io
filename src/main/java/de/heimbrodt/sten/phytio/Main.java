@@ -1,7 +1,7 @@
-package de.heimbrodt.sten;
+package de.heimbrodt.sten.phytio;
 
-import de.heimbrodt.sten.backend.StensWateringBackend;
-import de.heimbrodt.sten.frontend.StensWateringFrontend;
+import de.heimbrodt.sten.phytio.backend.StensWateringBackend;
+import de.heimbrodt.sten.phytio.frontend.StensWateringFrontend;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {

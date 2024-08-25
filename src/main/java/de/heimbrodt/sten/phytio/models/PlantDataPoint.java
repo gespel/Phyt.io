@@ -1,4 +1,4 @@
-package de.heimbrodt.sten.models;
+package de.heimbrodt.sten.phytio.models;
 
 public class PlantDataPoint {
     private String name;

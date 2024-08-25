@@ -1,7 +1,7 @@
-package de.heimbrodt.sten.datascraper;
+package de.heimbrodt.sten.phytio.datascraper;
 
 import com.google.gson.Gson;
-import de.heimbrodt.sten.models.WeatherResponse;
+import de.heimbrodt.sten.phytio.models.WeatherResponse;
 
 import java.net.URI;
 import java.net.http.HttpClient;
