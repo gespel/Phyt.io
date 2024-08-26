@@ -25,10 +25,23 @@ public class StensWateringFrontend extends Thread {
 
         server.createContext("/data", new SensorHandler());
         server.createContext("/weather", new WeatherDataHandler());
+        server.createContext("/data-processor", new SensorDataProcessorHandler());
         server.setExecutor(null); // creates a default executor
         server.start();
         log.info("Frontend server started");
         log.info("Server is listening on port 8080");
+    }
+
+    static class SensorDataProcessorHandler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange t) throws IOException {
+            SensorDataProcessor processor = new SensorDataProcessor();
+            processor.process();
+            t.sendResponseHeaders(200, "Ok".getBytes().length);
+            OutputStream os = t.getResponseBody();
+            os.write("Ok".getBytes());
+            os.close();
+        }
     }
 
     static class WeatherDataHandler implements HttpHandler {
