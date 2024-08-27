@@ -3,13 +3,13 @@ public:
     PumpController();
     void togglePump(int pumpNr);
 private:
-    bool pumpState1 = false;
-    bool pumpState2 = false;
-    bool pumpState3 = false;
+    bool pumpState1 = true;
+    bool pumpState2 = true;
+    bool pumpState3 = true;
 };
 
 PumpController::PumpController() {
-
+    
 }
 
 void PumpController::togglePump(int pumpNr) {

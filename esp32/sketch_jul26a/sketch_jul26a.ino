@@ -15,7 +15,9 @@ void setup() {
   pinMode(25, OUTPUT);
   pinMode(26, OUTPUT);
   pinMode(27, OUTPUT);
-  pinMode(14, OUTPUT);
+  digitalWrite(25, HIGH);
+  digitalWrite(26, HIGH);
+  digitalWrite(27, HIGH);
   Serial.begin(9600);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
@@ -38,7 +40,6 @@ void loop() {
   server.handleClient();
   
   Serial.println(sms.getRaw());
-
   delay(500);
 }
 
