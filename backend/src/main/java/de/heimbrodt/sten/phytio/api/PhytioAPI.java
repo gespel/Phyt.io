@@ -50,6 +50,7 @@ public class PhytioAPI extends Thread {
             WeatherDataScraper scraper = new WeatherDataScraper();
             scraper.scrape();
             String response = new Gson().toJson(scraper.getWeather());
+            t.getResponseHeaders().set("Content-Type", "application/json");
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();
             os.write(response.getBytes());
