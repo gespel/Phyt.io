@@ -1,14 +1,14 @@
 package de.heimbrodt.sten.phytio;
 
-import de.heimbrodt.sten.phytio.backend.StensWateringBackend;
-import de.heimbrodt.sten.phytio.frontend.StensWateringFrontend;
+import de.heimbrodt.sten.phytio.backend.PhytioBackend;
+import de.heimbrodt.sten.phytio.api.PhytioAPI;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         //I love it simple
-        StensWateringBackend swb = new StensWateringBackend();
-        StensWateringFrontend swf = new StensWateringFrontend();
-        swb.start();
-	    swf.start();
+        PhytioBackend be = new PhytioBackend();
+        PhytioAPI api = new PhytioAPI();
+        be.start();
+	    api.start();
     }
 }

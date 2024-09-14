@@ -6,14 +6,15 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.logging.Logger;
 
-public class StensWateringBackend extends Thread {
+public class PhytioBackend extends Thread {
     private SensorReadFileWorker worker = new SensorReadFileWorker();
-
-    public StensWateringBackend( ) {
+    Logger logger = Logger.getLogger("backend");
+    public PhytioBackend( ) {
+        logger.info("Phyt.io Backend initialized");
     }
 
     public void run() {
-        Logger log = Logger.getLogger("Backend");
+        logger.info("Phyt.io Backend started");
         while (true) {
             try {
                 HttpClient client = HttpClient.newHttpClient();
@@ -30,7 +31,7 @@ public class StensWateringBackend extends Thread {
                     System.out.println(response.statusCode());
                 }
                 client.close();
-                log.info("Successfully added datapoint from sensor.");
+                logger.info("Successfully added datapoint from sensor.");
             }
             catch (Exception e) {
                 System.out.println(e.getMessage());

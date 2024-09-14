@@ -1,4 +1,4 @@
-package de.heimbrodt.sten.phytio.frontend;
+package de.heimbrodt.sten.phytio.api;
 
 import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpExchange;
@@ -12,10 +12,10 @@ import java.net.InetSocketAddress;
 import java.util.Objects;
 import java.util.logging.Logger;
 
-public class StensWateringFrontend extends Thread {
+public class PhytioAPI extends Thread {
 
     public void run() {
-        Logger log = Logger.getLogger("Frontend");
+        Logger log = Logger.getLogger("API");
         HttpServer server = null;
         try {
             server = HttpServer.create(new InetSocketAddress(8080), 0);
@@ -28,7 +28,7 @@ public class StensWateringFrontend extends Thread {
         server.createContext("/data-processor", new SensorDataProcessorHandler());
         server.setExecutor(null); // creates a default executor
         server.start();
-        log.info("Frontend server started");
+        log.info("API server started");
         log.info("Server is listening on port 8080");
     }
 

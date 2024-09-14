@@ -1,4 +1,4 @@
-package de.heimbrodt.sten.phytio.frontend;
+package de.heimbrodt.sten.phytio.api;
 
 import com.google.gson.Gson;
 import de.heimbrodt.sten.phytio.models.PlantDataPoint;
@@ -7,7 +7,6 @@ import de.heimbrodt.sten.phytio.models.SensorRead;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

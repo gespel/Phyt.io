@@ -1,4 +1,4 @@
-package de.heimbrodt.sten.phytio.frontend;
+package de.heimbrodt.sten.phytio.api;
 
 import com.google.gson.Gson;
 import de.heimbrodt.sten.phytio.models.SensorRead;
